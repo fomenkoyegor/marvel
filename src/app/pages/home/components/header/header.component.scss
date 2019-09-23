@@ -1,0 +1,16 @@
+header{
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+header nav{
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+header nav ul{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
