@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CharactersRoutingModule } from './characters-routing.module';
 import { CharactersComponent } from './characters.component';
 import { IdComponent } from './id/id.component';
+import {ComponentsModule} from '../../../../components/components.module';
 
 
 
@@ -13,6 +14,7 @@ import { IdComponent } from './id/id.component';
   imports: [
     CommonModule,
     CharactersRoutingModule,
+    ComponentsModule,
 
   ]
 })

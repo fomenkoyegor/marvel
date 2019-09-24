@@ -1,0 +1,6 @@
+<div class="items" *ngIf="items">
+  <h2 class="items__title">
+    {{resourceName}}
+  </h2>
+  <app-item *ngFor="let item of items" [item]="item"></app-item>
+</div>

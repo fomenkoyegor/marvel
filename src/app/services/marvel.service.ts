@@ -9,24 +9,7 @@ import {Creator} from '../interfaces/creator';
 import {Event} from '../interfaces/event';
 import {Serie} from '../interfaces/serie';
 import {Storie} from '../interfaces/storie';
-
-export enum links {
-  characters = 'characters',
-  comics = 'comics',
-  creators = 'creators',
-  events = 'events',
-  series = 'series',
-  stories = 'stories',
-}
-
-export enum Total {
-  characters = 1492,
-  comics = 45292,
-  creators = 5196,
-  events = 75,
-  series = 11234,
-  stories = 102536,
-}
+import {MarvelLinks} from '../interfaces/marvel-links.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -90,14 +73,14 @@ export class MarvelService {
 
 
   public onGetStories(page = 1): Observable<Storie[]> {
-    return this.http.get<MarvelResponse>(this.createUrl(links.stories, this.storiesPaginate))
+    return this.http.get<MarvelResponse>(this.createUrl(MarvelLinks.stories, this.storiesPaginate))
       .pipe(
         map((res: MarvelResponse) => res.data.results)
       );
   }
 
   public onGetStorie(id): Observable<Storie> {
-    return this.http.get<MarvelResponse>(this.createUrl(`${links.stories}/${id}`))
+    return this.http.get<MarvelResponse>(this.createUrl(`${MarvelLinks.stories}/${id}`))
       .pipe(
         map((res: MarvelResponse) => res.data.results[0])
       );
@@ -105,14 +88,14 @@ export class MarvelService {
 
 
   public onGetSeries(page = 1): Observable<Serie[]> {
-    return this.http.get<MarvelResponse>(this.createUrl(links.series, this.seriesPaginate))
+    return this.http.get<MarvelResponse>(this.createUrl(MarvelLinks.series, this.seriesPaginate))
       .pipe(
         map((res: MarvelResponse) => res.data.results)
       );
   }
 
   public onGetSerie(id): Observable<Serie> {
-    return this.http.get<MarvelResponse>(this.createUrl(`${links.series}/${id}`))
+    return this.http.get<MarvelResponse>(this.createUrl(`${MarvelLinks.series}/${id}`))
       .pipe(
         map((res: MarvelResponse) => res.data.results[0])
       );
@@ -120,42 +103,42 @@ export class MarvelService {
 
 
   public onGetEvents(page = 1): Observable<Event[]> {
-    return this.http.get<MarvelResponse>(this.createUrl(links.events, this.eventsPaginate))
+    return this.http.get<MarvelResponse>(this.createUrl(MarvelLinks.events, this.eventsPaginate))
       .pipe(
         map((res: MarvelResponse) => res.data.results)
       );
   }
 
   public onGetEvent(id): Observable<Event> {
-    return this.http.get<MarvelResponse>(this.createUrl(`${links.events}/${id}`))
+    return this.http.get<MarvelResponse>(this.createUrl(`${MarvelLinks.events}/${id}`))
       .pipe(
         map((res: MarvelResponse) => res.data.results[0])
       );
   }
 
   public onGetCreators(page = 1): Observable<Creator[]> {
-    return this.http.get<MarvelResponse>(this.createUrl(links.creators, this.creatorsPaginate))
+    return this.http.get<MarvelResponse>(this.createUrl(MarvelLinks.creators, this.creatorsPaginate))
       .pipe(
         map((res: MarvelResponse) => res.data.results)
       );
   }
 
   public onGetCreator(id): Observable<Creator> {
-    return this.http.get<MarvelResponse>(this.createUrl(`${links.creators}/${id}`))
+    return this.http.get<MarvelResponse>(this.createUrl(`${MarvelLinks.creators}/${id}`))
       .pipe(
         map((res: MarvelResponse) => res.data.results[0])
       );
   }
 
   public onGetComics(page = 1): Observable<Comic[]> {
-    return this.http.get<MarvelResponse>(this.createUrl(links.comics, this.comicsPaginate))
+    return this.http.get<MarvelResponse>(this.createUrl(MarvelLinks.comics, this.comicsPaginate))
       .pipe(
         map((res: MarvelResponse) => res.data.results)
       );
   }
 
   public onGetComic(id): Observable<Comic> {
-    return this.http.get<MarvelResponse>(this.createUrl(`${links.comics}/${id}`))
+    return this.http.get<MarvelResponse>(this.createUrl(`${MarvelLinks.comics}/${id}`))
       .pipe(
         map((res: MarvelResponse) => res.data.results[0])
       );
@@ -167,14 +150,14 @@ export class MarvelService {
     } else {
       this.charactersPaginate.offset = page * this.charactersPaginate.limit;
     }
-    return this.http.get<MarvelResponse>(this.createUrl(links.characters, this.charactersPaginate))
+    return this.http.get<MarvelResponse>(this.createUrl(MarvelLinks.characters, this.charactersPaginate))
       .pipe(
         map((res: MarvelResponse) => res.data.results)
       );
   }
 
   public onGetCharacter(id): Observable<Character> {
-    return this.http.get<MarvelResponse>(this.createUrl(`characters/${id}`))
+    return this.http.get<MarvelResponse>(this.createUrl(`${MarvelLinks.characters}/${id}`))
       .pipe(
         map((res: MarvelResponse) => res.data.results[0])
       );

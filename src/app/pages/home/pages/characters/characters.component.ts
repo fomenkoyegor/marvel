@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {MarvelService} from '../../../../services/marvel.service';
 import {Observable} from 'rxjs';
 import {Character} from '../../../../interfaces/character';
+import {getImage} from '../../../../functions';
+import {Thumbnail} from '../../../../interfaces/marvel-entity';
 
 @Component({
   selector: 'app-charcters',
@@ -22,4 +24,7 @@ export class CharactersComponent implements OnInit {
     this.$characters$ = this.marvel.onGetCharacters();
   }
 
+  getImage(thumbnail: Thumbnail) {
+    return getImage(thumbnail);
+  }
 }

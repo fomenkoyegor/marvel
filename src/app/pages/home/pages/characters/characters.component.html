@@ -6,45 +6,18 @@
   <div style="box-shadow: 1px 1px 5px black;padding: 1em"
        *ngFor="let character of characters"
   >
+
+
     <h2>{{character.name}}</h2>
     <a [routerLink]="['characters',character.id]">show</a><br>
     <img
-      src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+      src="{{getImage(character.thumbnail)}}"
       alt="{{character.name}}">
 
-    <h2>Comics</h2>
-
-    <p style="border: 1px solid red;" *ngFor="let comic of character.comics.items">
-      <a [routerLink]="['/home/comics/comics',marvel.getId(comic.resourceURI)]">
-        {{comic.name}}
-      </a>
-    </p>
-
-    <hr>
-    <h3>Events</h3>
-    <p *ngFor="let event of character.events.items" style="border: 1px solid purple">
-      <a [routerLink]="['/home/events/events',marvel.getId(event.resourceURI)]">
-        {{event.name}}
-      </a>
-    </p>
-    <hr>
-
-    <hr>
-    <h2>Series</h2>
-    <p style="border: 1px solid firebrick;" *ngFor="let serie of character.series.items">
-      <a [routerLink]="['/home/series/series',marvel.getId(serie.resourceURI)]">
-        {{serie.name}}
-      </a>
-    </p>
-
-
-    <hr>
-    <h2>Stories</h2>
-    <p style="border: 1px solid green;" *ngFor="let storie of character.stories.items">
-      <a [routerLink]="['/home/stories/stories',marvel.getId(storie.resourceURI)]">
-        {{storie.name}}
-      </a>
-    </p>
+    <app-items [items]="character.comics.items"></app-items>
+    <app-items [items]="character.events.items"></app-items>
+    <app-items [items]="character.series.items"></app-items>
+    <app-items [items]="character.stories.items"></app-items>
 
 
   </div>

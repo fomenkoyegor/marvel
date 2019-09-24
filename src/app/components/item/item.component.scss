@@ -1,0 +1,16 @@
+.item {
+  box-shadow: 2px 2px 15px  rgba(0,0,0,0.65);
+  padding: 0.4em;
+  margin-bottom: 1em;
+  transition: all 0.45s linear;
+  cursor: pointer;
+  &:hover{
+    box-shadow: 2px 2px 5px  rgba(0,0,0,0.9);
+    transform: translateY(-5px);
+  }
+  &:focus{
+    box-shadow: 2px 2px 5px rgba(176, 51, 163, 0.9);
+    outline-color: rgba(176, 51, 163, 0.9);
+  }
+}
+

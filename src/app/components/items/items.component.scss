@@ -1,0 +1,9 @@
+.items{
+  //overflow: hidden;
+  padding: 0.4em;
+  &__title{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.4em;
+  }
+}
