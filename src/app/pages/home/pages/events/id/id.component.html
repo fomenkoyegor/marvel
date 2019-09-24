@@ -1,7 +1,9 @@
-<p>events works!</p>
-<div *ngIf="events$ | async as events; else loader ">
+<p>id works!</p>
+
+
+<div *ngIf="event$ | async as event; else loader ">
   <div style="box-shadow: 1px 1px 5px;margin-bottom: 1em;padding: 1em"
-       *ngFor="let event of events"
+
   >
     <h2>{{event.title}}</h2>
     <a [routerLink]="['/home/events/events',event.id]">show</a><br>
