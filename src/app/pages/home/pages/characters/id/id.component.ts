@@ -13,7 +13,7 @@ export class IdComponent implements OnInit {
   public character$: Observable<Character>;
 
   constructor(
-    private marvel: MarvelService,
+    public marvel: MarvelService,
     private route: ActivatedRoute
   ) {
   }
