@@ -12,12 +12,21 @@ const routes: Routes = [
         loadChildren: () => import('./pages/characters/characters.module').then(m => m.CharactersModule)
       },
       {
+        path: 'characters/:id', redirectTo: 'characters/characters/:id'
+      },
+      {
         path: 'comics',
         loadChildren: () => import('./pages/comics/comics.module').then(m => m.ComicsModule)
       },
       {
+        path: 'comics/:id', redirectTo: 'comics/comics/:id'
+      },
+      {
         path: 'creators',
         loadChildren: () => import('./pages/creators/creators.module').then(m => m.CreatorsModule)
+      },
+      {
+        path: 'creators/:id', redirectTo: 'creators/creators/:id'
       },
       {
         path: 'events',

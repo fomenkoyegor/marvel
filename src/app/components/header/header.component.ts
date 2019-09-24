@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {MarvelLinks} from '../../interfaces/marvel-links.enum';
 
 
 @Component({
@@ -8,12 +9,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public links = [
-    'characters',
-    'comics',
-    'creators',
-    'events',
-    'series',
-    'stories',
+    MarvelLinks.characters,
+    MarvelLinks.comics,
+    MarvelLinks.creators,
+    MarvelLinks.events,
+    MarvelLinks.series,
+    MarvelLinks.stories,
   ];
 
   constructor() {

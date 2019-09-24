@@ -12,6 +12,12 @@ const routes: Routes = [
     path: 'characters', redirectTo: 'home/characters'
   },
   {
+    path: 'comics', redirectTo: 'home/comics'
+  },
+  {
+    path: 'creators', redirectTo: 'home/creators'
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
   }

@@ -28,6 +28,11 @@ export interface TextObjects {
   text: string;
 }
 
+export interface Base {
+  id: number;
+  imageUrl?: string | '';
+}
+
 // tslint:disable-next-line:no-empty-interface
 export interface Events extends Entity {
 }

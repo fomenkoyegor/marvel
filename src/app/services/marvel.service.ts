@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import {Character} from '../interfaces/character';
 import {MarvelData, MarvelResponse} from '../interfaces/marvel-response';
 import {Comic} from '../interfaces/comic';
@@ -10,6 +10,7 @@ import {Event} from '../interfaces/event';
 import {Serie} from '../interfaces/serie';
 import {Storie} from '../interfaces/storie';
 import {MarvelLinks} from '../interfaces/marvel-links.enum';
+import {getImage} from '../functions';
 
 @Injectable({
   providedIn: 'root'
@@ -152,14 +153,15 @@ export class MarvelService {
     }
     return this.http.get<MarvelResponse>(this.createUrl(MarvelLinks.characters, this.charactersPaginate))
       .pipe(
-        map((res: MarvelResponse) => res.data.results)
+        map((res: MarvelResponse) => res.data.results),
+        map(res => res.map(r => r.thumbnail ? ({...r, imageUrl: getImage(r.thumbnail)}) : r)),
       );
   }
 
   public onGetCharacter(id): Observable<Character> {
     return this.http.get<MarvelResponse>(this.createUrl(`${MarvelLinks.characters}/${id}`))
       .pipe(
-        map((res: MarvelResponse) => res.data.results[0])
+        map((res: MarvelResponse) => res.data.results[0]),
       );
   }
 }
