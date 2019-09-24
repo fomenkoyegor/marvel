@@ -20,6 +20,13 @@
     </a>
   </p>
 
+  <h2>Creators</h2>
+  <p style="border: 1px solid red;" *ngFor="let creator of comic.creators.items">
+    <a [routerLink]="['/home/creators/creators',marvel.getId(creator.resourceURI)]">
+      {{creator.name}}
+    </a>
+  </p>
+
 </div>
 
 

@@ -1,8 +1,8 @@
-<p>creators works!</p>
+<p>id works!</p>
 
 
-<div *ngIf="creators$ | async as creators;else loader">
-  <div style="border: 1px solid;padding: 1em" *ngFor="let creator of creators">
+<div *ngIf="creator$ | async as creator;else loader">
+  <div style="border: 1px solid;padding: 1em" >
     <h2>{{creator.fullName}}</h2>
     <a [routerLink]="['/home/creators/creators',creator.id]">show</a><br>
     <p><img src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" alt="{{creator.firstName}}"></p>

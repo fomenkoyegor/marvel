@@ -1,4 +1,5 @@
 <p>comics works!</p>
+
 <div *ngIf="comics$ | async as comics; else loader">
   <div *ngFor="let comic of comics" style="border: 1px solid;margin-bottom: 1em">
     <p>
@@ -17,6 +18,14 @@
         {{character.name}}
       </a>
     </p>
+    <hr>
+    <h2>Creators</h2>
+    <p style="border: 1px solid red;" *ngFor="let creator of comic.creators.items">
+      <a [routerLink]="['/home/creators/creators',marvel.getId(creator.resourceURI)]">
+        {{creator.name}}
+      </a>
+    </p>
+
   </div>
 
 </div>

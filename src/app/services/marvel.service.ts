@@ -5,15 +5,18 @@ import {map} from 'rxjs/operators';
 import {Character} from '../interfaces/character';
 import {MarvelData, MarvelResponse} from '../interfaces/marvel-response';
 import {Comic} from '../interfaces/comic';
+import {Creator} from '../interfaces/creator';
 
 export enum links {
   characters = 'characters',
   comics = 'comics',
+  creators = 'creators',
 }
 
 export enum Total {
   characters = 1492,
   comics = 45292,
+  creators = 5196,
 }
 
 @Injectable({
@@ -41,6 +44,11 @@ export class MarvelService {
     limit: 12
   };
 
+  public creatorsPaginate: MarvelData = {
+    offset: 0,
+    limit: 24
+  };
+
 
   getId(entity: string): number {
     const entityArr = entity.split('/');
@@ -54,6 +62,20 @@ export class MarvelService {
       paramsString += `&${param}=${params[param]}`;
     }
     return `${this.url}${entity}?${paramsString}`;
+  }
+
+  public onGetCreators(page = 1): Observable<Creator[]> {
+    return this.http.get<MarvelResponse>(this.createUrl(links.creators, this.creatorsPaginate))
+      .pipe(
+        map((res: MarvelResponse) => res.data.results)
+      );
+  }
+
+  public onGetCreator(id): Observable<Creator> {
+    return this.http.get<MarvelResponse>(this.createUrl(`${links.creators}/${id}`))
+      .pipe(
+        map((res: MarvelResponse) => res.data.results[0])
+      );
   }
 
   public onGetComics(page = 1): Observable<Comic[]> {

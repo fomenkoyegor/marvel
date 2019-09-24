@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MarvelService} from '../../../../services/marvel.service';
+import {Observable} from 'rxjs';
+import {Creator} from '../../../../interfaces/creator';
 
 @Component({
   selector: 'app-creators',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./creators.component.scss']
 })
 export class CreatorsComponent implements OnInit {
+  public creators$: Observable<Creator[]>;
 
-  constructor() { }
+  constructor(
+    public marvel: MarvelService
+  ) {
+  }
 
   ngOnInit() {
+    this.creators$ = this.marvel.onGetCreators();
   }
 
 }
