@@ -20,6 +20,15 @@
       </a>
     </p>
 
+    <hr>
+    <h3>Events</h3>
+    <p *ngFor="let event of character.events.items" style="border: 1px solid purple">
+      <a [routerLink]="['/home/events/events',marvel.getId(event.resourceURI)]">
+        {{event.name}}
+      </a>
+    </p>
+    <hr>
+
 
   </div>
 </div>
