@@ -11,6 +11,7 @@ import {getResorceName} from '../../functions';
 export class ItemsComponent implements OnInit {
   @Input() items: Item[];
   public resourceName: string;
+  public isOpen: boolean;
 
   constructor() {
   }

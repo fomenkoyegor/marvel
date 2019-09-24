@@ -10,9 +10,15 @@
 
     <h2>{{character.name}}</h2>
     <a [routerLink]="['characters',character.id]">show</a><br>
-    <img
-      src="{{getImage(character.thumbnail)}}"
-      alt="{{character.name}}">
+    <div>
+      <img
+        src="{{getImage(character.thumbnail)}}"
+        alt="{{character.name}}"
+        style="float: left"
+      >
+      <p *ngIf="character.description">{{character.description}}</p>
+    </div>
+    <br style="clear: both">
 
     <app-items [items]="character.comics.items"></app-items>
     <app-items [items]="character.events.items"></app-items>

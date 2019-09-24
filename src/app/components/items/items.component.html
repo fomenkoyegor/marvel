@@ -1,6 +1,18 @@
-<div class="items" *ngIf="items">
+<div class="items" *ngIf="items && items.length">
   <h2 class="items__title">
-    {{resourceName}}
+    <span> {{resourceName}} </span>
+
+    <button (click)="isOpen=!isOpen">
+      <span *ngIf="!isOpen"> open </span>
+      <span *ngIf="isOpen"> close </span>
+    </button>
+
   </h2>
-  <app-item *ngFor="let item of items" [item]="item"></app-item>
+  <ng-container *ngIf="isOpen;else close">
+    <app-item *ngFor="let item of items" [item]="item"></app-item>
+  </ng-container>
+  <ng-template #close>
+    <p style="text-align: center">...</p>
+  </ng-template>
+
 </div>
