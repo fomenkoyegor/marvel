@@ -11,9 +11,16 @@
     <img
       src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
       alt="{{character.name}}">
-    <p>
-      {{character.stories.collectionURI}}
+
+    <h2>Comics</h2>
+
+    <p style="border: 1px solid red;" *ngFor="let comic of character.comics.items">
+      <a [routerLink]="['/home/comics/comics',marvel.getId(comic.resourceURI)]">
+        {{comic.name}}
+      </a>
     </p>
+
+
   </div>
 </div>
 

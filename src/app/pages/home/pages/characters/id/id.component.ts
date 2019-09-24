@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {MarvelService} from '../../../../../services/marvel.service';
 import {ActivatedRoute} from '@angular/router';
+import {Character} from '../../../../../interfaces/character';
 
 @Component({
   selector: 'app-id',
@@ -9,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./id.component.scss']
 })
 export class IdComponent implements OnInit {
-  public character$: Observable<any>;
+  public character$: Observable<Character>;
 
   constructor(
     private marvel: MarvelService,

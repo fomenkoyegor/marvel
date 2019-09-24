@@ -11,6 +11,12 @@
     <p>
       price : <span *ngFor="let p of comic.prices">{{p.price}}$</span>
     </p>
+    <h2>Characters</h2>
+    <p style="border: 1px solid red;" *ngFor="let character of comic.characters.items">
+      <a [routerLink]="['/home/characters/characters',marvel.getId(character.resourceURI)]">
+        {{character.name}}
+      </a>
+    </p>
   </div>
 
 </div>

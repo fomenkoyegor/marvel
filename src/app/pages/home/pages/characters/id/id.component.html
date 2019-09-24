@@ -1,12 +1,25 @@
 <p>id works!</p>
 
 
-<div *ngIf="character$ | async as character">
+<div *ngIf="character$ | async as character; else loader">
   <div style="box-shadow: 1px 1px 5px black;padding: 1em"
   >
     <h2>{{character.name}}</h2>
     <img [routerLink]="['characters',character.id]"
          src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
          alt="{{character.name}}">
+
+    <p style="border: 1px solid red;" *ngFor="let comic of character.comics.items">
+      <a [routerLink]="['/home/comics/comics',marvel.getId(comic.resourceURI)]">
+        {{comic.name}}
+      </a>
+    </p>
+
   </div>
+
 </div>
+
+
+<ng-template #loader>
+  <h2>Loading Character.....</h2>
+</ng-template>

@@ -41,6 +41,12 @@ export class MarvelService {
     limit: 12
   };
 
+
+  getId(entity: string): number {
+    const entityArr = entity.split('/');
+    return +(entityArr[entityArr.length - 1]);
+  }
+
   private createUrl(entity: string, params = {}): string {
     let paramsString = '';
     // tslint:disable-next-line:forin
