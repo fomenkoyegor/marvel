@@ -2,13 +2,14 @@ interface Item {
   resourceURI: string;
   name: string;
   type?: string;
+  role?: string;
 }
 
 interface Entity {
-  available: number;
-  collectionURI: string;
-  items: Item[];
-  returned: number;
+  available?: number;
+  collectionURI?: string;
+  items?: Item[];
+  returned?: number;
 }
 
 export interface Url {
@@ -21,6 +22,12 @@ export interface Thumbnail {
   extension: string;
 }
 
+export interface TextObjects {
+  type: string;
+  language: string;
+  text: string;
+}
+
 // tslint:disable-next-line:no-empty-interface
 export interface Events extends Entity {
 }
@@ -29,8 +36,10 @@ export interface Events extends Entity {
 export interface Stories extends Entity {
 }
 
-// tslint:disable-next-line:no-empty-interface
+
 export interface Series extends Entity {
+  resourceURI?: string;
+  name?: string;
 }
 
 // tslint:disable-next-line:no-empty-interface
@@ -39,4 +48,9 @@ export interface Comics extends Entity {
 
 // tslint:disable-next-line:no-empty-interface
 export interface Characters extends Entity {
+}
+
+
+// tslint:disable-next-line:no-empty-interface
+export interface Creators extends Entity {
 }

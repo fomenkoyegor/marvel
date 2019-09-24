@@ -10,6 +10,11 @@ export enum links {
   comics = 'comics',
 }
 
+export enum Total {
+  characters = 1492,
+  comics = 45292,
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +24,10 @@ export class MarvelService {
   public charactersPaginate: MarvelData = {
     offset: 0,
     limit: 36,
+  };
+  public comicsPaginate: MarvelData = {
+    offset: 0,
+    limit: 12
   };
 
 
@@ -44,7 +53,7 @@ export class MarvelService {
       this.charactersPaginate.offset = page * this.charactersPaginate.limit;
     }
 
-    console.log(this.createUrl('characters', this.charactersPaginate));
+    // console.log(this.createUrl('characters', this.charactersPaginate));
     return this.http.get<MarvelResponse>(this.createUrl(links.characters, this.charactersPaginate))
       .pipe(
         map((res: MarvelResponse) => res.data.results)
