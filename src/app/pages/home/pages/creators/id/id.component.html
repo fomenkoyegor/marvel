@@ -23,6 +23,14 @@
     </p>
     <hr>
 
+    <hr>
+    <h2>Series</h2>
+    <p style="border: 1px solid firebrick;" *ngFor="let serie of creator.series.items">
+      <a [routerLink]="['/home/series/series',marvel.getId(serie.resourceURI)]">
+        {{serie.name}}
+      </a>
+    </p>
+
   </div>
 </div>
 

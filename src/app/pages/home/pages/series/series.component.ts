@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Serie} from '../../../../interfaces/serie';
+import {MarvelService} from '../../../../services/marvel.service';
 
 @Component({
   selector: 'app-series',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./series.component.scss']
 })
 export class SeriesComponent implements OnInit {
+  public series$: Observable<Serie[]>;
 
-  constructor() { }
+  constructor(
+    public marvel: MarvelService
+  ) {
+  }
 
   ngOnInit() {
+    this.series$ = this.marvel.onGetSeries();
   }
 
 }

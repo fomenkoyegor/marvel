@@ -1,8 +1,6 @@
-<p>series works!</p>
-
-
-<div *ngIf="series$ | async as series; else loader">
-  <div *ngFor="let serie of series" style="background: cornflowerblue;margin-bottom: 1em;padding: 1em">
+<p>id works!</p>
+<div *ngIf="serie$ | async as serie; else loader">
+  <div  style="background: darkslategrey;color: antiquewhite;margin-bottom: 1em;padding: 1em">
     <h2>{{serie.title}}</h2>
     <a [routerLink]="['/home/series/series',serie.id]">show</a><br>
     <p>
