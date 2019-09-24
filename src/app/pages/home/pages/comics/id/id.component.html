@@ -1,8 +1,8 @@
-<p>comics works!</p>
-<div *ngIf="comics$ | async as comics; else loader">
-  <div *ngFor="let comic of comics" style="border: 1px solid;margin-bottom: 1em">
+<p>id works!</p>
+
+<div *ngIf="comic$ | async as comic; else loader">
+  <div style="border: 1px solid;margin-bottom: 1em">
     <p>
-      <a [routerLink]="['comics',comic.id]">show</a><br>
       <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="{{comic.id}}">
     </p>
     <p>

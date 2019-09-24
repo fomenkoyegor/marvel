@@ -23,6 +23,7 @@ export interface Comic {
   collections: Array<any>;
   collectedIssues: Array<any>;
   dates: Array<{ type?: string, date?: Date }>;
+  prices: Array<{ type: string, price: number }>;
   thumbnail: Thumbnail;
   images?: Array<any>;
   creators: Creators;
