@@ -1,0 +1,46 @@
+header{
+  position: sticky;
+  top: 0;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.69);
+  padding: 0.4em;
+  background-color: rgba(0, 0, 0, 0.89);
+}
+
+.logo{
+  width: 8em;
+  height: 3em;
+  object-fit: cover;
+  display: block;
+  background-color: red;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li{
+  margin-right: 1em;
+}
+
+li:last-of-type{
+  margin-right: 0;
+}
+
+a{
+  color: white;
+  padding: 0.4em;
+  border-bottom: 1px solid transparent;
+  transition: 0.45s border-bottom-color linear;
+}
+
+a.active{
+  border-bottom: 1px solid red;
+}

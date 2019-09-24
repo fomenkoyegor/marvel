@@ -1,0 +1,13 @@
+<header>
+  <nav>
+    <a routerLink="/">
+      <img src="../../../assets/logo.png" alt="logo" class="logo">
+    </a>
+    <ul>
+      <li *ngFor="let link of links">
+        <a routerLink="{{link}}" routerLinkActive="active">{{link}}</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+

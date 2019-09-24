@@ -1,0 +1,22 @@
+<p>charcters works!</p>
+
+<div style="border: 1px solid"
+     *ngIf="$characters$ | async as characters;else loader"
+>
+  <div style="box-shadow: 1px 1px 5px black;padding: 1em"
+       *ngFor="let character of characters"
+  >
+    <h2>{{character.name}}</h2>
+    <a [routerLink]="['characters',character.id]">show</a><br>
+    <img
+      src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+      alt="{{character.name}}">
+    <p>
+      {{character.stories.collectionURI}}
+    </p>
+  </div>
+</div>
+
+<ng-template #loader>
+  loading heroes.....
+</ng-template>

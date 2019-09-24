@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy":"now"
+    "deploy": "now"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~8.2.7",
     "@angular/router": "~8.2.7",
     "rxjs": "~6.4.0",
+    "ts-md5": "^1.2.6",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

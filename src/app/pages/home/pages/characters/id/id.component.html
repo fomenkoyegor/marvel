@@ -1,0 +1,12 @@
+<p>id works!</p>
+
+
+<div *ngIf="character$ | async as character">
+  <div style="box-shadow: 1px 1px 5px black;padding: 1em"
+  >
+    <h2>{{character.name}}</h2>
+    <img [routerLink]="['characters',character.id]"
+         src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+         alt="{{character.name}}">
+  </div>
+</div>
