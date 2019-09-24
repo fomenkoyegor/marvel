@@ -33,6 +33,14 @@
       </a>
     </p>
 
+    <hr>
+    <h2>Stories</h2>
+    <p style="border: 1px solid green;" *ngFor="let storie of character.stories.items">
+      <a [routerLink]="['/home/stories/stories',marvel.getId(storie.resourceURI)]">
+        {{storie.name}}
+      </a>
+    </p>
+
   </div>
 
 </div>

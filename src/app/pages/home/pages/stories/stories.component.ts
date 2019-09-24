@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {MarvelService} from '../../../../services/marvel.service';
+import {Storie} from '../../../../interfaces/storie';
 
 @Component({
   selector: 'app-stories',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stories.component.scss']
 })
 export class StoriesComponent implements OnInit {
+  public stories$: Observable<Storie[]>;
 
-  constructor() { }
+  constructor(
+    public marvel: MarvelService
+  ) {
+  }
 
   ngOnInit() {
+    this.stories$ = this.marvel.onGetStories();
   }
 
 }

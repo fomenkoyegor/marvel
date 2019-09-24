@@ -8,6 +8,7 @@ import {Comic} from '../interfaces/comic';
 import {Creator} from '../interfaces/creator';
 import {Event} from '../interfaces/event';
 import {Serie} from '../interfaces/serie';
+import {Storie} from '../interfaces/storie';
 
 export enum links {
   characters = 'characters',
@@ -15,6 +16,7 @@ export enum links {
   creators = 'creators',
   events = 'events',
   series = 'series',
+  stories = 'stories',
 }
 
 export enum Total {
@@ -23,6 +25,7 @@ export enum Total {
   creators = 5196,
   events = 75,
   series = 11234,
+  stories = 102536,
 }
 
 @Injectable({
@@ -65,6 +68,11 @@ export class MarvelService {
     limit: 72
   };
 
+  public storiesPaginate: MarvelData = {
+    offset: 0,
+    limit: 36
+  };
+
 
   getId(entity: string): number {
     const entityArr = entity.split('/');
@@ -78,6 +86,21 @@ export class MarvelService {
       paramsString += `&${param}=${params[param]}`;
     }
     return `${this.url}${entity}?${paramsString}`;
+  }
+
+
+  public onGetStories(page = 1): Observable<Storie[]> {
+    return this.http.get<MarvelResponse>(this.createUrl(links.stories, this.storiesPaginate))
+      .pipe(
+        map((res: MarvelResponse) => res.data.results)
+      );
+  }
+
+  public onGetStorie(id): Observable<Storie> {
+    return this.http.get<MarvelResponse>(this.createUrl(`${links.stories}/${id}`))
+      .pipe(
+        map((res: MarvelResponse) => res.data.results[0])
+      );
   }
 
 

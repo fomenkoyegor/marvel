@@ -1,11 +1,9 @@
-<p>stories works!</p>
+<p>id works!</p>
 
 
-<p>series works!</p>
 
-
-<div *ngIf="stories$ | async as stories; else loader">
-  <div *ngFor="let storie of stories" style="background: pink;margin-bottom: 1em;padding: 1em">
+<div *ngIf="storie$ | async as storie; else loader">
+  <div  style="background: pink;margin-bottom: 1em;padding: 1em">
     <h2>{{storie.title}}</h2>
     <a [routerLink]="['/home/stories/stories',storie.id]">show</a><br>
     <p>
