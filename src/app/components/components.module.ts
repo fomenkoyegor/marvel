@@ -5,18 +5,22 @@ import {RouterModule} from '@angular/router';
 import {ItemsComponent} from './items/items.component';
 import { ItemComponent } from './item/item.component';
 import {MatButtonModule} from '@angular/material/button';
-
+import { CardComponent } from './card/card.component';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
-  declarations: [HeaderComponent, ItemsComponent, ItemComponent],
+  declarations: [HeaderComponent, ItemsComponent, ItemComponent, CardComponent],
   imports: [
     CommonModule,
     RouterModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   exports: [
     HeaderComponent,
     ItemsComponent,
-    MatButtonModule
+    MatButtonModule,
+    CardComponent,
+    MatCardModule
   ]
 })
 export class ComponentsModule {

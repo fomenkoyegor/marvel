@@ -1,0 +1,66 @@
+<div *ngIf="item">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div  mat-card-avatar class="example-header-image"></div>
+
+      <mat-card-title *ngIf="item.title && item.title.length;else name">
+        {{item.title}}
+      </mat-card-title>
+      <ng-template #name>
+        <span *ngIf="item.name && item.name.length">
+          {{item.name}}
+        </span>
+        <span *ngIf="resourse==='creators'">
+          {{item.fullName}}
+        </span>
+      </ng-template>
+
+    </mat-card-header>
+
+    <img mat-card-image *ngIf="item.thumbnail"
+         src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}"
+         alt="{{item.id}}"
+    >
+
+    <mat-card-content>
+      <p *ngIf="item.description && item.description.length">
+        {{item.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [routerLink]="url" mat-button>SHOW</button>
+    </mat-card-actions>
+
+    <mat-card-content>
+
+      <ng-container *ngIf="item.characters">
+        <app-items [items]="item.characters.items"></app-items>
+      </ng-container>
+
+      <ng-container *ngIf="item.comics">
+        <app-items [items]="item.comics.items"></app-items>
+      </ng-container>
+
+
+      <ng-container *ngIf="item.creators">
+        <app-items [items]="item.creators.items"></app-items>
+      </ng-container>
+
+
+      <ng-container *ngIf="item.events">
+      <app-items [items]="item.events.items"></app-items>
+    </ng-container>
+
+
+      <ng-container *ngIf="item.series && item.series.items && item.series.items.length">
+        <app-items [items]="item.series.items"></app-items>
+      </ng-container>
+
+      <ng-container *ngIf="item.stories">
+        <app-items [items]="item.stories.items"></app-items>
+      </ng-container>
+
+    </mat-card-content>
+
+  </mat-card>
+</div>

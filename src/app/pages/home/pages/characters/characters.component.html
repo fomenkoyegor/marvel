@@ -1,32 +1,7 @@
 <p>charcters works!</p>
 
-<div style="border: 1px solid"
-     *ngIf="$characters$ | async as characters;else loader"
->
-  <div style="box-shadow: 1px 1px 5px black;padding: 1em"
-       *ngFor="let character of characters"
-  >
-
-
-    <h2>{{character.name}}</h2>
-    <a [routerLink]="['characters',character.id]">show</a><br>
-    <div>
-      <img
-        src="{{getImage(character.thumbnail)}}"
-        alt="{{character.name}}"
-        style="float: left"
-      >
-      <p *ngIf="character.description">{{character.description}}</p>
-    </div>
-    <br style="clear: both">
-
-    <app-items [items]="character.comics.items"></app-items>
-    <app-items [items]="character.events.items"></app-items>
-    <app-items [items]="character.series.items"></app-items>
-    <app-items [items]="character.stories.items"></app-items>
-
-
-  </div>
+<div *ngIf="$characters$ | async as characters;else loader" style="display: flex;flex-wrap: wrap;justify-content: space-around">
+  <app-card *ngFor="let item of characters" [item]="item"></app-card>
 </div>
 
 <ng-template #loader>

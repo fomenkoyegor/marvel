@@ -1,51 +1,7 @@
 <p>comics works!</p>
 
 <div *ngIf="comics$ | async as comics; else loader">
-  <div *ngFor="let comic of comics" style="border: 1px solid;margin-bottom: 1em">
-    <p>
-      <a [routerLink]="['comics',comic.id]">show</a><br>
-      <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="{{comic.id}}">
-    </p>
-    <p>
-      description: {{comic.description}}
-    </p>
-    <p>
-      price : <span *ngFor="let p of comic.prices">{{p.price}}$</span>
-    </p>
-    <h2>Characters</h2>
-    <p style="border: 1px solid red;" *ngFor="let character of comic.characters.items">
-      <a [routerLink]="['/home/characters/characters',marvel.getId(character.resourceURI)]">
-        {{character.name}}
-      </a>
-    </p>
-    <hr>
-    <h2>Creators</h2>
-    <p style="border: 1px solid red;" *ngFor="let creator of comic.creators.items">
-      <a [routerLink]="['/home/creators/creators',marvel.getId(creator.resourceURI)]">
-        {{creator.name}}
-      </a>
-    </p>
-    <hr>
-    <h3>Events</h3>
-    <p *ngFor="let event of comic.events.items" style="border: 1px solid purple">
-      <a [routerLink]="['/home/events/events',marvel.getId(event.resourceURI)]">
-        {{event.name}}
-      </a>
-    </p>
-    <hr>
-
-
-    <hr>
-    <h2>Stories</h2>
-    <p style="border: 1px solid green;" *ngFor="let storie of comic.stories.items">
-      <a [routerLink]="['/home/stories/stories',marvel.getId(storie.resourceURI)]">
-        {{storie.name}}
-      </a>
-    </p>
-
-
-  </div>
-
+    <app-card *ngFor="let comic of comics" [item]="comic"></app-card>
 </div>
 
 

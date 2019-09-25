@@ -1,6 +1,6 @@
 import {Item, Thumbnail} from '../interfaces/marvel-entity';
 
-export function getResorceName(item: Item): string {
+export function getResorceName(item): string {
   const entityArr = item.resourceURI.split('/');
   return (entityArr[entityArr.length - 2]);
 }

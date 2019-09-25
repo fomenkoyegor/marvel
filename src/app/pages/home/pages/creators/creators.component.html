@@ -2,45 +2,9 @@
 
 
 <div *ngIf="creators$ | async as creators;else loader">
-  <div style="border: 1px solid;padding: 1em" *ngFor="let creator of creators">
-    <h2>{{creator.fullName}}</h2>
-    <a [routerLink]="['/home/creators/creators',creator.id]">show</a><br>
-    <p><img src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" alt="{{creator.firstName}}"></p>
-    <hr>
-    <h3>create comics</h3>
-    <p *ngFor="let comic of creator.comics.items">
-      <a [routerLink]="['/home/comics/comics',marvel.getId(comic.resourceURI)]">
-        {{comic.name}}
-      </a>
-    </p>
-    <hr>
 
-    <h3>Events</h3>
-    <p *ngFor="let event of creator.events.items" style="border: 1px solid purple">
-      <a [routerLink]="['/home/events/events',marvel.getId(event.resourceURI)]">
-        {{event.name}}
-      </a>
-    </p>
-    <hr>
+    <app-card *ngFor="let creator of creators" [item]="creator"></app-card>
 
-    <hr>
-    <h2>Series</h2>
-    <p style="border: 1px solid firebrick;" *ngFor="let serie of creator.series.items">
-      <a [routerLink]="['/home/series/series',marvel.getId(serie.resourceURI)]">
-        {{serie.name}}
-      </a>
-    </p>
-
-
-    <hr>
-    <h2>Stories</h2>
-    <p style="border: 1px solid green;" *ngFor="let storie of creator.stories.items">
-      <a [routerLink]="['/home/stories/stories',marvel.getId(storie.resourceURI)]">
-        {{storie.name}}
-      </a>
-    </p>
-
-  </div>
 </div>
 
 
