@@ -2,7 +2,7 @@
   <h2 class="items__title">
     <span> {{resourceName}} </span>
 
-    <button (click)="isOpen=!isOpen">
+    <button (click)="isOpen=!isOpen"  mat-raised-button color="primary">
       <span *ngIf="!isOpen"> open </span>
       <span *ngIf="isOpen"> close </span>
     </button>
