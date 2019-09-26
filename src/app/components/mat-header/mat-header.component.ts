@@ -3,6 +3,7 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
 import {MarvelLinks} from '../../interfaces/marvel-links.enum';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-mat-header',
@@ -24,7 +25,9 @@ export class MatHeaderComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(
+    private breakpointObserver: BreakpointObserver
+  ) {
   }
 
 }

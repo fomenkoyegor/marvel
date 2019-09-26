@@ -2,6 +2,7 @@
   <mat-sidenav #drawer
                class="sidenav"
                fixedInViewport="false"
+               [ngClass]="{hidden: (isHandset$ | async) === false}"
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false"
@@ -13,6 +14,7 @@
          mat-list-item
          [routerLink]="link"
          routerLinkActive="active-link"
+         (click)="drawer.toggle()"
       >
         {{link}}
       </a>
@@ -29,6 +31,15 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>marvel</span>
+      <span class="spacer"></span>
+      <a *ngFor="let link of links"
+         class="link"
+         mat-list-item
+         [routerLink]="link"
+         routerLinkActive="active-link"
+      >
+        {{link}}
+      </a>
     </mat-toolbar>
     <ng-container>
       <router-outlet></router-outlet>
