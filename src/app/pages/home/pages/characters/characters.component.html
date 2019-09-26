@@ -1,5 +1,15 @@
 <p>charcters works!</p>
 
+<div style="border: 1px solid;padding: 1em">
+  <h5>paginate</h5>
+  <button
+    *ngFor="let p of pages;let i = index"
+    [routerLink]="['/home/characters']" [queryParams]="{page: i}"
+  >
+    {{i}}
+  </button>
+</div>
+
 <div *ngIf="$characters$ | async as characters;else loader" style="display: flex;flex-wrap: wrap;justify-content: space-around">
   <app-card *ngFor="let item of characters" [item]="item"></app-card>
 </div>
