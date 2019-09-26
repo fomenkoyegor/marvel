@@ -30,7 +30,51 @@ export interface TextObjects {
 
 export interface Base {
   id: number;
-  imageUrl?: string | '';
+  name: string;
+  description?: string;
+  modified: Date;
+  thumbnail: Thumbnail;
+  resourceURI: string;
+  comics: Comics;
+  series: Series;
+  stories: Stories;
+  events: Events;
+  urls: Url[];
+  digitalId: number;
+  title: string;
+  issueNumber: number;
+  variantDescription?: string;
+  isbn?: string;
+  upc?: string;
+  diamondCode?: string;
+  ean?: string;
+  issn?: string;
+  format?: string;
+  pageCount?: number;
+  textObjects: TextObjects[];
+  url: Url[];
+  variants: Array<any>;
+  collections: Array<any>;
+  collectedIssues: Array<any>;
+  dates: Array<{ type?: string, date?: Date }>;
+  prices: Array<{ type: string, price: number }>;
+  images?: Array<any>;
+  creators: Creators;
+  characters: Characters;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  suffix: string;
+  fullName: string;
+  start: Date;
+  end: Date;
+  next: { resourceURI: string, name: string };
+  previous: { resourceURI: string, name: string };
+  startYear: Date | number;
+  endYear: Date | number;
+  rating: string;
+  type: string;
+  originalIssue: { resourceURI: string, name: string };
 }
 
 // tslint:disable-next-line:no-empty-interface
